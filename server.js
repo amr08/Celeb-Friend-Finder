@@ -1,11 +1,11 @@
-var express = require("express");
+	var express = require("express");
+	var ApiRoutes = require("./app/routing/api-routes.js")
+	var bodyParser = require("body-parser");
+	var HtmlRoutes = require("./app/routing/html-routes.js");
 
-var bodyParser = require("body-parser");
-var HtmlRoutes = require("./app/routing/html-routes.js");
+	var PORT = 7000;
 
-var PORT = 7000;
-
-var app = express();
+	var app = express();
 
 //makes things organized
 	app.use(bodyParser.json());
@@ -15,7 +15,8 @@ var app = express();
 
 
 
-HtmlRoutes(app);
+	HtmlRoutes(app);
+	ApiRoutes(app);
 
 //makes sure we are listening
 	app.listen(PORT, function () {
