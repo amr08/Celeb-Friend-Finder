@@ -13,10 +13,17 @@
 	</head>
 
 	<style>
-	/*	#submitBTN {
-			width: 100%;
+		img {
+			width: 300px;
+			height: 300px;
 		}
-	*/
+
+		#postAjax {
+			text-align: center;
+			font-size: 25px;
+			font-weight: bold;
+		}
+	
 	</style>
 
 	<body>
@@ -186,7 +193,6 @@
 				        <h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
 				      </div>
 				      <div class="modal-body" id="postAjax">
-				        This is where JSON goes!!
 				      </div>
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -202,13 +208,11 @@
 	<script> 
 
 	function runCelebrityMatch(){
-
-		// Here we get the location of the root page. 
-		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+		$("#postAjax").empty();
 		var currentURL = window.location.origin;
 
-		// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
 		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
+
 			.done(function(friendsArray) {
 
 				// Here we are logging the URL so we have access to it for troubleshooting
@@ -222,14 +226,14 @@
 				// Loop through and display each of the customers 
 				for (var i=0; i<friendsArray.length; i++){
 
-					console.log(friendsArray[i].name);
+					console.log(friendsArray[1].name);
 					console.log("------------------------------------")
-					console.log(friendsArray[i].photo);
+					console.log(friendsArray[1].photo);
 
-					var rendered = $("<div class='images'>");
+					
 					var image = $("<img>");
 
-					image.attr("src", friendsArray[i].photo);
+					image.attr("src", friendsArray[1].photo);
 
 
 				// 	// Create the HTML Well (Section) and Add the table content for each reserved table
@@ -241,8 +245,10 @@
 				// 	var tableNumber = i + 1;
 
 				 }
-					// Then display the remaining fields in the HTML (Section Name, Date, URL)
-					$("#postAjax").append(image[0]);
+				
+					$("#postAjax").append(friendsArray[1].name + "<br>")
+						.append(image[0]);
+
 				
 			});
 	
