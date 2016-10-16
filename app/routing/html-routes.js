@@ -1,5 +1,6 @@
 
-var path = require("path");
+
+	var path = require("path");
 //setting up routes for HTML
 
 	var HtmlRoutes = function(app){
@@ -12,7 +13,7 @@ var path = require("path");
 				res.sendFile(path.join(__dirname, '../public/survey.html'));
 		});
 
-		console.log("api routes linked")
+		console.log("html routes linked")
 
 	};
 
