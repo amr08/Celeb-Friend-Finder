@@ -8,19 +8,19 @@ exports.friends = [{
 
 	{
     name: "Leonardo",
-  	photo: "leo.jpg",
+  	photo: "http://screencrush.com/442/files/2012/12/the_great_gatsby_trailer.jpg",
     scores: [1,2,3,4,5,4,3,2,1,2]
 	},
 
 	{
     name: "Matt",
-    photo: "matt.jpg",
+    photo: "http://i3.mirror.co.uk/incoming/article6460722.ece/ALTERNATES/s615b/We-Love-TV.jpg",
     scores: [1,2,3,4,5,4,3,2,1,2]
 	},
 
 	{
     name: "Jack",
-    photo: "jackblack.jpg",
+    photo: "http://hdpics.co/wp-content/uploads/2016/06/Jack-black-2.jpg",
     scores: [1,2,3,4,5,4,3,2,1,2]
   	}
   	

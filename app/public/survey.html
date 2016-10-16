@@ -217,22 +217,20 @@
 				console.log("------------------------------------");
 
 				// Here we then log the NYTData to console, where it will show up as an object.
-				console.log(friendsArray[1].name);
-				console.log("------------------------------------")
-				console.log(friendsArray[1].photo);
-
+				
 
 				// Loop through and display each of the customers 
-				// for (var i=0; i<friendsArray.length; i++){
+				for (var i=0; i<friendsArray.length; i++){
 
-					
+					console.log(friendsArray[i].name);
+					console.log("------------------------------------")
+					console.log(friendsArray[i].photo);
 
+					var rendered = $("<div class='images'>");
 					var image = $("<img>");
 
-					image.attr("src", friendsArray[1].photo);
+					image.attr("src", friendsArray[i].photo);
 
-				
-					console.log(image[0])
 
 				// 	// Create the HTML Well (Section) and Add the table content for each reserved table
 				// 	var tableSection = $("<div>");
@@ -242,9 +240,9 @@
 
 				// 	var tableNumber = i + 1;
 
-				// }
+				 }
 					// Then display the remaining fields in the HTML (Section Name, Date, URL)
-					$("#postAjax").append('<h2><span class="label label-primary">' + "</span> " + friendsArray[1].name + image[0] + "</h2>");
+					$("#postAjax").append(image[0]);
 				
 			});
 	
