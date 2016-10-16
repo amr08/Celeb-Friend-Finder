@@ -174,18 +174,78 @@
 
 
 				<div class="btn-group">
-					<button id="submitBTN" type="button" class="btn btn-info">Submit</button>
+					<button id="submitBTN" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Submit</button>
 				 
 				</div>
+
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
+				      </div>
+				      <div class="modal-body" id="postAjax">
+				        This is where JSON goes!!
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+	  		</div>
+	</div>
 
 			</div>
 		</div>
 
 	<script> 
 
+	function runCelebrityMatch(){
+
+		// Here we get the location of the root page. 
+		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+		var currentURL = window.location.origin;
+
+		// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
+			.done(function(friendsArray) {
+
+				// Here we are logging the URL so we have access to it for troubleshooting
+				console.log("------------------------------------");
+				console.log("URL: " + currentURL + "/api/friends");
+				console.log("------------------------------------");
+
+				// Here we then log the NYTData to console, where it will show up as an object.
+				console.log(friendsArray[0].name);
+				console.log("------------------------------------")
+
+
+				// Loop through and display each of the customers 
+				for (var i=0; i<friendsArray.length; i++){
+
+					var image = $("<img>");
+
+					image.attr("src",friendsArray[1].photo);
+
+				// 	// Create the HTML Well (Section) and Add the table content for each reserved table
+				// 	var tableSection = $("<div>");
+				// 	tableSection.addClass('well');
+				// 	tableSection.attr('id', 'tableWell-' + i+1)
+				// 	$('#tableSection').append(tableSection);
+
+				// 	var tableNumber = i + 1;
+
+				}
+					// Then display the remaining fields in the HTML (Section Name, Date, URL)
+					$("#postAjax").append('<h2><span class="label label-primary">' + "</span> " + friendsArray[1].name + image + "</h2>");
+				
+			});
+	
+}
+
 		$("#submitBTN").on("click", function(){
-			//Modal Pops up
-			alert("working");
+           runCelebrityMatch();
 		});
 
 
