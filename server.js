@@ -26,10 +26,4 @@
 		console.log('App listening on PORT ' + PORT);
 	});
 
-	var arr = [1,2,1,1,1];
-
-	var sum = arr.reduce(add, 0);
-		function add (a,b) {
-			return a + b;
-		}
-		console.log(sum);
+	
