@@ -215,7 +215,10 @@
 		</div>
 
 	<script> 
+
    var answersArray = [];
+   var userSum = 0;
+   var friendSum = 0;
 
 	function obtainValue() {
 		var name = $("#name").val();
@@ -232,47 +235,39 @@
 		var Q10 = $("#Q10").val();
 
 //pushing values to array
-		answersArray.push(parseInt(Q1))
-		answersArray.push(parseInt(Q2))
-		answersArray.push(parseInt(Q3))
-		answersArray.push(parseInt(Q4))
-		answersArray.push(parseInt(Q5))
-		answersArray.push(parseInt(Q6))
-		answersArray.push(parseInt(Q7))	
-		answersArray.push(parseInt(Q8))
-		answersArray.push(parseInt(Q9))
-		answersArray.push(parseInt(Q10))
+		answersArray.push(parseInt(Q1));
+		answersArray.push(parseInt(Q2));
+		answersArray.push(parseInt(Q3));
+		answersArray.push(parseInt(Q4));
+		answersArray.push(parseInt(Q5));
+		answersArray.push(parseInt(Q6));
+		answersArray.push(parseInt(Q7));
+		answersArray.push(parseInt(Q8));
+		answersArray.push(parseInt(Q9));
+		answersArray.push(parseInt(Q10));
 
-		// Q2 = parseInt(Q2)
-		// Q3 = parseInt(Q3)
-		// Q4 = parseInt(Q4)
-		// Q5 = parseInt(Q5)
-		// Q6 = parseInt(Q6)
-		// Q7 = parseInt(Q7)
-		// Q8 = parseInt(Q8)
-		// Q9 = parseInt(Q9)
-		// Q10 = parseInt(Q10)
-		
+
 		console.log(answersArray);
-		console.log(name)
-		console.log(photoID)
+		console.log(name);
+		console.log(photoID);
 
-//adding sum
-	var sum = answersArray.reduce(add, 0);
+
+	}
+
+function sumOf(arr) {
+	
+	var sum = arr.reduce(add, 0);
 		function add (a,b) {
 			return a + b;
 		}
 
 		console.log(sum);
+}
 
-	}
 
 	function runCelebrityMatch(){
 		$("#postAjax").empty();
-		
-
-	
-	obtainValue();
+		obtainValue();
 
 		var currentURL = window.location.origin;
 
@@ -301,13 +296,17 @@
 					image.attr("src", friendsArray[1].photo);
 
 
-				// 	// Create the HTML Well (Section) and Add the table content for each reserved table
-				// 	var tableSection = $("<div>");
-				// 	tableSection.addClass('well');
-				// 	tableSection.attr('id', 'tableWell-' + i+1)
-				// 	$('#tableSection').append(tableSection);
+			
+				var userSum = sumOf(answersArray) 
 
-				// 	var tableNumber = i + 1;
+				var friendSum = sumOf(friendsArray[1].scores);
+
+				console.log(userSum)
+				console.log(friendSum)
+
+				// var difference = userSum - friendSum;
+
+				// console.log(difference)
 
 				 }
 				
