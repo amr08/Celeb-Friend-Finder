@@ -213,17 +213,25 @@
 
 			</div>
 		</div>
+		<br>
+
+		<footer class="footer">
+      		<div class="container">
+	        	<p><a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/FriendFinder">GitHub Repo</a></p>
+      		</div>
+    	</footer>
 
 	<script> 
 
-   var answersArray = [];
-   var userSum = 0;
-   var friendSum = 0;
+	var userInput = [];
+	var currentURL = "";
 
-	function obtainValue() {
+
+	var obtainValue = function () {
+
 		var name = $("#name").val();
 		var photoID = $("#photoID").val();
-		var Q1 = $("#Q1").val() 
+		var Q1 = $("#Q1").val(); 
 		var Q2 = $("#Q2").val();
 		var Q3 = $("#Q3").val();
 		var Q4 = $("#Q4").val();
@@ -234,42 +242,25 @@
 		var Q9 = $("#Q9").val();
 		var Q10 = $("#Q10").val();
 
-//pushing values to array
-		answersArray.push(parseInt(Q1));
-		answersArray.push(parseInt(Q2));
-		answersArray.push(parseInt(Q3));
-		answersArray.push(parseInt(Q4));
-		answersArray.push(parseInt(Q5));
-		answersArray.push(parseInt(Q6));
-		answersArray.push(parseInt(Q7));
-		answersArray.push(parseInt(Q8));
-		answersArray.push(parseInt(Q9));
-		answersArray.push(parseInt(Q10));
+		  userInput = {
 
-
-		console.log(answersArray);
-		console.log(name);
-		console.log(photoID);
-
-
-	}
-
-function sumOf(arr) {
+			name: name,
+			photo: photoID,
+			score: [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
 	
-	var sum = arr.reduce(add, 0);
-		function add (a,b) {
-			return a + b;
 		}
+		
+	};
+	
 
-		console.log(sum);
-}
+// function compare () {
+
+// }
 
 
-	function runCelebrityMatch(){
+	var runCelebrityMatch = function (){
 		$("#postAjax").empty();
-		obtainValue();
-
-		var currentURL = window.location.origin;
+		console.log("working")
 
 		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
 
@@ -282,8 +273,8 @@ function sumOf(arr) {
 
 				// Here we then log the NYTData to console, where it will show up as an object.
 				
-
-				// Loop through and display each of the customers 
+// 
+		// 		// Loop through and display each of the customers 
 				for (var i=0; i<friendsArray.length; i++){
 
 					console.log(friendsArray[1].name);
@@ -296,30 +287,48 @@ function sumOf(arr) {
 					image.attr("src", friendsArray[1].photo);
 
 
-			
-				var userSum = sumOf(answersArray) 
-
-				var friendSum = sumOf(friendsArray[1].scores);
-
-				console.log(userSum)
-				console.log(friendSum)
-
-				// var difference = userSum - friendSum;
-
-				// console.log(difference)
-
 				 }
+
+
 				
 					$("#postAjax").append(friendsArray[1].name + "<br>")
 						.append(image[0]);
 
 				
-			});
-	
-}
+			
+});
+
+  };
 
 		$("#submitBTN").on("click", function(){
-           runCelebrityMatch();
+			obtainValue();
+			console.log(userInput);
+
+			currentURL = window.location.origin;
+			console.log(currentURL)
+
+			$.post(currentURL + '/api/friends', userInput, 
+				function(data) {
+					console.log(data)
+					console.log("working in ajax")
+
+				    $("#name").val("");
+					$("#photoID").val("");
+					$("#Q1").val(""); 
+					$("#Q2").val("");
+					$("#Q3").val("");
+					$("#Q4").val("");
+					$("#Q5").val("");
+					$("#Q6").val("");
+					$("#Q7").val("");
+					$("#Q8").val("");
+					$("#Q9").val("");
+					$("#Q10").val("");
+
+				
+			});
+
+      		 runCelebrityMatch();
 		});
 
 
