@@ -225,6 +225,9 @@
 
 	var userInput = [];
 	var currentURL = "";
+	var answersArray = [];
+
+
 
 
 	var obtainValue = function () {
@@ -242,11 +245,23 @@
 		var Q9 = $("#Q9").val();
 		var Q10 = $("#Q10").val();
 
+		answersArray.push(parseInt(Q1))
+ 	answersArray.push(parseInt(Q2))
+ 	answersArray.push(parseInt(Q3))
+ 	answersArray.push(parseInt(Q4))
+ 	answersArray.push(parseInt(Q5))
+ 	answersArray.push(parseInt(Q6))
+ 	answersArray.push(parseInt(Q7))	
+ 	answersArray.push(parseInt(Q8))
+ 	answersArray.push(parseInt(Q9))
+ 	answersArray.push(parseInt(Q10))
+
+
 		  userInput = {
 
 			name: name,
 			photo: photoID,
-			score: [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
+			scores: answersArray
 	
 		}
 		
@@ -260,28 +275,39 @@
 
 	var runCelebrityMatch = function (){
 		$("#postAjax").empty();
-		console.log("working")
+	
 
 		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
 
 			.done(function(friendsArray) {
 
-				// Here we are logging the URL so we have access to it for troubleshooting
-				console.log("------------------------------------");
-				console.log("URL: " + currentURL + "/api/friends");
-				console.log("------------------------------------");
+				// // Here we are logging the URL so we have access to it for troubleshooting
+				// console.log("------------------------------------");
+				// console.log("URL: " + currentURL + "/api/friends");
+				// console.log("------------------------------------");
 
-				// Here we then log the NYTData to console, where it will show up as an object.
-				
-// 
-		// 		// Loop through and display each of the customers 
+		     
+
 				for (var i=0; i<friendsArray.length; i++){
 
-					console.log(friendsArray[1].name);
 					console.log("------------------------------------")
-					console.log(friendsArray[1].photo);
+					console.log(friendsArray[i].name);
+					var scores = friendsArray[i].scores;
+					
 
 					
+
+					for (var j = 0; j<scores.length;j++) {
+						// console.log(friendsArray[j].scores[j])
+						scores = scores[j]
+
+					}
+
+					for (var k = 0; j <answersArray.length; k++){
+							console.log(scores[k])
+
+						}
+						
 					var image = $("<img>");
 
 					image.attr("src", friendsArray[1].photo);
@@ -290,11 +316,15 @@
 				 }
 
 
-				
+
+
+				// console.log(userInput)
+				// console.log(answersArray);
 					$("#postAjax").append(friendsArray[1].name + "<br>")
 						.append(image[0]);
 
-				
+				// var total = userInput.scores[0] + friendsArray[1].scores[0];
+				// console.log(total)
 			
 });
 
@@ -312,18 +342,18 @@
 					console.log(data)
 					console.log("working in ajax")
 
-				    $("#name").val("");
-					$("#photoID").val("");
-					$("#Q1").val(""); 
-					$("#Q2").val("");
-					$("#Q3").val("");
-					$("#Q4").val("");
-					$("#Q5").val("");
-					$("#Q6").val("");
-					$("#Q7").val("");
-					$("#Q8").val("");
-					$("#Q9").val("");
-					$("#Q10").val("");
+				 //    $("#name").val("");
+					// $("#photoID").val("");
+					// $("#Q1").val(""); 
+					// $("#Q2").val("");
+					// $("#Q3").val("");
+					// $("#Q4").val("");
+					// $("#Q5").val("");
+					// $("#Q6").val("");
+					// $("#Q7").val("");
+					// $("#Q8").val("");
+					// $("#Q9").val("");
+					// $("#Q10").val("");
 
 				
 			});
