@@ -7,15 +7,23 @@
 	<head>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 	</head>
 
 	<style>
+
+		body {
+			background-image: url("http://media.gettyimages.com/videos/spotlights-on-sky-background-loop-yellow-video-id472537819?s=640x640");
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
 		img {
-			width: 300px;
-			height: 300px;
+			width: 400px;
+			height: 400px;
 		}
 
 		#postAjax {
@@ -23,7 +31,28 @@
 			font-size: 25px;
 			font-weight: bold;
 		}
+
+		.well {
+			background: rgba(255,250,205, 0.6);
+			border: white; 
+		}
+
+		.jumbotron {
+			background: rgba(255,250,205, 0.6);
+			margin-top: 20px;
+			text-align: left;
+		}
+
+		a {
+			color: #FFFACD;
+		}
+
+		a:hover {
+			color: #00EEEE;
+			text-decoration: none;
+		}
 	
+
 	</style>
 
 	<body>
@@ -32,7 +61,7 @@
 
 			<div class = "jumbotron">
 
-			<div class="well">
+	
 				<div class ="form-group">
 					<label for = "name">Name (Required): </label>
 						<input class ="form-control" id = "name"></input>
@@ -40,17 +69,14 @@
 					<label for = "photoID">Link to Photo Image (Required): </label>
 						<input class ="form-control" id ="photoID"></input>
 				</div>	
-			</div>
+		
 			
-				<div class="btn-group">
-				  	<a href="/"> <button id="surveyBTN" type="button" class="btn btn-info dropdown-toggle">Back</button></a>
-					
-				</div>
+				
 			</div>
 
 			<div class="well">
 			   <h3> Question 1 </h3>
-				<h5> Do you get energized when being social or find yourself wiped out?</h5>
+				<h5> You find yourself energized after being social </h5>
 
 					<select class="form-control" id="Q1">
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -64,7 +90,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 2 </h3>
-				<h5> Question 2 goes here</h5>
+				<h5> You often find yourself uncomfortable in large crowds</h5>
 
 					<select class="form-control" id=Q2>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -78,7 +104,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 3 </h3>
-				<h5> Question 3 goes here</h5>
+				<h5> You value quality time with people that you care about </h5>
 
 					<select class="form-control" id=Q3>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -92,7 +118,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 4 </h3>
-				<h5> Question 4 goes here</h5>
+				<h5> You would describe yourself a flexible person</h5>
 
 					<select class="form-control" id=Q4>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -106,7 +132,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 5 </h3>
-				<h5> Question 5 goes here</h5>
+				<h5> You love animals </h5>
 
 					<select class="form-control" id=Q5>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -119,7 +145,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 6 </h3>
-				<h5> Question 6 goes here</h5>
+				<h5> You like sparking up conversation with random people</h5>
 
 					<select class="form-control" id=Q6>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -133,7 +159,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 7 </h3>
-				<h5> Question 7 goes here</h5>
+				<h5> You are an adventurous person</h5>
 
 					<select class="form-control" id=Q7>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -147,7 +173,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 8 </h3>
-				<h5> Question 8 goes here</h5>
+				<h5> You would describe yourself as open minded</h5>
 
 					<select class="form-control" id=Q8>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -161,7 +187,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 9 </h3>
-				<h5> Question goes here</h5>
+				<h5> Many would describe you as humourous</h5>
 
 					<select class="form-control" id=Q9>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -175,7 +201,7 @@
 			</div>
 			<div class="well">
 			   <h3> Question 10 </h3>
-				<h5> Question 10 goes here</h5>
+				<h5> You're a big spender</h5>
 
 					<select class="form-control" id=Q10>
 					    <option id="placeholder" value="none">Select Rating </option>
@@ -227,6 +253,11 @@
 	var currentURL = "";
 	var answersArray = [];
 
+	var scores = [];
+	var name = [];
+	var difference = 0;
+	var match = [];
+
 
 
 
@@ -246,15 +277,15 @@
 		var Q10 = $("#Q10").val();
 
 		answersArray.push(parseInt(Q1))
- 	answersArray.push(parseInt(Q2))
- 	answersArray.push(parseInt(Q3))
- 	answersArray.push(parseInt(Q4))
- 	answersArray.push(parseInt(Q5))
- 	answersArray.push(parseInt(Q6))
- 	answersArray.push(parseInt(Q7))	
- 	answersArray.push(parseInt(Q8))
- 	answersArray.push(parseInt(Q9))
- 	answersArray.push(parseInt(Q10))
+ 		answersArray.push(parseInt(Q2))
+ 		answersArray.push(parseInt(Q3))
+ 		answersArray.push(parseInt(Q4))
+ 		answersArray.push(parseInt(Q5))
+ 		answersArray.push(parseInt(Q6))
+ 		answersArray.push(parseInt(Q7))	
+ 		answersArray.push(parseInt(Q8))
+ 		answersArray.push(parseInt(Q9))
+ 		answersArray.push(parseInt(Q10))
 
 
 		  userInput = {
@@ -268,9 +299,18 @@
 	};
 	
 
-// function compare () {
 
-// }
+	
+	function postImage(photo){
+
+		var image = $("<img>");
+
+		image.attr("src", photo);
+
+		$("#postAjax").append(name + "<br>")
+			.append(image[0]);
+
+	}
 
 
 	var runCelebrityMatch = function (){
@@ -281,51 +321,91 @@
 
 			.done(function(friendsArray) {
 
-				// // Here we are logging the URL so we have access to it for troubleshooting
-				// console.log("------------------------------------");
-				// console.log("URL: " + currentURL + "/api/friends");
-				// console.log("------------------------------------");
 
-		     
+			
+
+				var sumOfUser = answersArray.reduce(add, 0);
+  						function add(a,b) {
+  							return a+b;
+  						}
+
+  						console.log(sumOfUser)
+
 
 				for (var i=0; i<friendsArray.length; i++){
 
 					console.log("------------------------------------")
-					console.log(friendsArray[i].name);
-					var scores = friendsArray[i].scores;
+					// console.log(friendsArray[i].name);
+					  scores = friendsArray[i].scores;
+					  name = friendsArray[i].name;
+					  console.log(name)
 					
 
-					
+					 sum = scores.reduce(add, 0);
+  						function add (a,b) {
+  							return a + b;
+  							}
+  
+  						 function findDiff(a, b) { 
 
-					for (var j = 0; j<scores.length;j++) {
-						// console.log(friendsArray[j].scores[j])
-						scores = scores[j]
+  							difference = Math.abs(a - b) 
+  						} 
+
+  						findDiff(sum, sumOfUser) 
+
+  						console.log("the difference between " + name + "'s score and your score is " + difference)
+		
+		if (difference <= 5) {
+			switchSt();
+  				}
+  		
+  	
+  		}
+
+  				function switchSt (){
+  					switch (difference) {
+  							case 0:
+  							match = name;
+  							console.log(match)
+  							postImage(friendsArray[i].photo)
+  							break;
+  						
+  							case 1:
+  							match = name;
+  							console.log(match)
+  							postImage(friendsArray[i].photo)
+  							break;
+
+  							case 2:
+  							match = name;
+  							console.log(match)
+  							postImage(friendsArray[i].photo)
+  							break;
+
+  							case 3:
+  							match = name;
+  							console.log(match)
+  							postImage(friendsArray[i].photo)
+  							break;
+
+  							case 4:
+  							match = name;
+  							console.log(match)
+  							postImage(friendsArray[i].photo)
+  							break;
+
+
+
+  							default:
+  							console.log("sorry you have no friends")
+  							postImage("https://i.ytimg.com/vi/qG717LVerPk/maxresdefault.jpg");
 
 					}
+				}
+  		
+  				
+    
 
-					for (var k = 0; j <answersArray.length; k++){
-							console.log(scores[k])
-
-						}
-						
-					var image = $("<img>");
-
-					image.attr("src", friendsArray[1].photo);
-
-
-				 }
-
-
-
-
-				// console.log(userInput)
-				// console.log(answersArray);
-					$("#postAjax").append(friendsArray[1].name + "<br>")
-						.append(image[0]);
-
-				// var total = userInput.scores[0] + friendsArray[1].scores[0];
-				// console.log(total)
-			
 });
 
   };
@@ -339,8 +419,6 @@
 
 			$.post(currentURL + '/api/friends', userInput, 
 				function(data) {
-					console.log(data)
-					console.log("working in ajax")
 
 				 //    $("#name").val("");
 					// $("#photoID").val("");

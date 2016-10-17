@@ -15,13 +15,13 @@ exports.friends = [{
 	{
     name: "Matt",
     photo: "http://i3.mirror.co.uk/incoming/article6460722.ece/ALTERNATES/s615b/We-Love-TV.jpg",
-    scores: [1,2,3,4,5,4,3,2,1,2]
+    scores: [1,5,3,4,5,4,3,2,1,2]
 	},
 
 	{
     name: "Jack",
     photo: "http://hdpics.co/wp-content/uploads/2016/06/Jack-black-2.jpg",
-    scores: [1,2,3,4,5,4,3,2,1,2]
+    scores: [1,3,3,4,5,4,3,2,1,2]
   	}
   	
 ];
