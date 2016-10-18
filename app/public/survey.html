@@ -33,14 +33,16 @@
 		}
 
 		.well {
-			background: rgba(255,250,205, 0.6);
+			background: rgba(10,10,10, 0.6);
 			border: white; 
+			color: white;
 		}
 
 		.jumbotron {
-			background: rgba(255,250,205, 0.6);
+			background: rgba(10,10,10, 0.6);
 			margin-top: 20px;
 			text-align: left;
+			color: white;
 		}
 
 		a {
@@ -51,6 +53,10 @@
 			color: #00EEEE;
 			text-decoration: none;
 		}
+
+		.red {
+			color: #DC143C;
+		}
 	
 
 	</style>
@@ -60,7 +66,6 @@
 		<div class = "container">
 
 			<div class = "jumbotron">
-
 	
 				<div class ="form-group">
 					<label for = "name">Name (Required): </label>
@@ -69,9 +74,7 @@
 					<label for = "photoID">Link to Photo Image (Required): </label>
 						<input class ="form-control" id ="photoID"></input>
 				</div>	
-		
-			
-				
+						
 			</div>
 
 			<div class="well">
@@ -84,10 +87,10 @@
 					    <option value=2>2</option>
 					    <option value=3>3</option>
 					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-			
+					    <option value=5>5 Strongly Agree</option>	
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 2 </h3>
 				<h5> You often find yourself uncomfortable in large crowds</h5>
@@ -98,10 +101,10 @@
 					    <option value=2>2</option>
 					    <option value=3>3</option>
 					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-			
+					    <option value=5>5 Strongly Agree</option>	
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 3 </h3>
 				<h5> You value quality time with people that you care about </h5>
@@ -113,9 +116,9 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 4 </h3>
 				<h5> You would describe yourself a flexible person</h5>
@@ -130,6 +133,7 @@
 			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 5 </h3>
 				<h5> You love animals </h5>
@@ -143,6 +147,7 @@
 					    <option value=5>5 Strongly Agree</option>
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 6 </h3>
 				<h5> You like sparking up conversation with random people</h5>
@@ -154,9 +159,9 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 7 </h3>
 				<h5> You are an adventurous person</h5>
@@ -168,9 +173,9 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 8 </h3>
 				<h5> You would describe yourself as open minded</h5>
@@ -182,9 +187,9 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 9 </h3>
 				<h5> Many would describe you as humourous</h5>
@@ -196,9 +201,9 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
+
 			<div class="well">
 			   <h3> Question 10 </h3>
 				<h5> You're a big spender</h5>
@@ -210,45 +215,47 @@
 					    <option value=3>3</option>
 					    <option value=4>4</option>
 					    <option value=5>5 Strongly Agree</option>
-			
 					</select>
 			</div>
 
-
 				<div class="btn-group">
-					<button id="submitBTN" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Submit</button>
-				 
+					<button id="submitBTN" type="button" class="btn btn-info">Submit</button> 
+					<div class= "well-sm" id ="error"></div>
 				</div>
 
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
-				      </div>
-				      <div class="modal-body" id="postAjax">
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Save changes</button>
-				      </div>
-				    </div>
-	  		</div>
-	</div>
+					<div class="modal-dialog" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
 
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
+				      		</div>
+						      	<div class="modal-body" id="postAjax">
+						      	</div>
+
+					    	<div class="modal-footer">
+					        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					    	</div>
+						</div>
+	  				</div>
+				</div>
+
+<!-- closes jumbotron -->
 			</div>
+<!-- closes container -->
 		</div>
 		<br>
 
 		<footer class="footer">
       		<div class="container">
-	        	<p><a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/FriendFinder">GitHub Repo</a></p>
+	        	<p><a href="/">Home</a> | <a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/FriendFinder">GitHub Repo</a></p>
       		</div>
     	</footer>
 
 	<script> 
 
+//globals
 	var userInput = [];
 	var currentURL = "";
 	var answersArray = [];
@@ -258,9 +265,7 @@
 	var difference = 0;
 	var match = [];
 
-
-
-
+//functions
 	var obtainValue = function () {
 
 		var name = $("#name").val();
@@ -288,7 +293,7 @@
  		answersArray.push(parseInt(Q10))
 
 
-		  userInput = {
+		userInput = {
 
 			name: name,
 			photo: photoID,
@@ -297,9 +302,6 @@
 		}
 		
 	};
-	
-
-
 	
 	function postImage(photo){
 
@@ -312,17 +314,12 @@
 
 	}
 
-
 	var runCelebrityMatch = function (){
 		$("#postAjax").empty();
 	
-
 		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
 
 			.done(function(friendsArray) {
-
-
-			
 
 				var sumOfUser = answersArray.reduce(add, 0);
   						function add(a,b) {
@@ -335,110 +332,131 @@
 				for (var i=0; i<friendsArray.length; i++){
 
 					console.log("------------------------------------")
-					// console.log(friendsArray[i].name);
-					  scores = friendsArray[i].scores;
-					  name = friendsArray[i].name;
-					  console.log(name)
+					scores = friendsArray[i].scores;
+					name = friendsArray[i].name;
 					
-
-					 sum = scores.reduce(add, 0);
+					sum = scores.reduce(add, 0);
   						function add (a,b) {
   							return a + b;
   							}
   
-  						 function findDiff(a, b) { 
+  							function findDiff(a, b) { 
 
-  							difference = Math.abs(a - b) 
-  						} 
+  								difference = Math.abs(a - b) 
+  							} 
 
-  						findDiff(sum, sumOfUser) 
-
-  						console.log("the difference between " + name + "'s score and your score is " + difference)
+  					findDiff(sum, sumOfUser); 
+					console.log("the difference between " + name + "'s score and your score is " + difference);
 		
-		if (difference <= 5) {
-			switchSt();
+
+					if (difference <= 5) {
+						switchSt();
+						console.log(name)
+			  		}
   				}
-  		
-  	
-  		}
-
-  				function switchSt (){
-  					switch (difference) {
-  							case 0:
-  							match = name;
-  							console.log(match)
-  							postImage(friendsArray[i].photo)
-  							break;
-  						
-  							case 1:
-  							match = name;
-  							console.log(match)
-  							postImage(friendsArray[i].photo)
-  							break;
-
-  							case 2:
-  							match = name;
-  							console.log(match)
-  							postImage(friendsArray[i].photo)
-  							break;
-
-  							case 3:
-  							match = name;
-  							console.log(match)
-  							postImage(friendsArray[i].photo)
-  							break;
-
-  							case 4:
-  							match = name;
-  							console.log(match)
-  							postImage(friendsArray[i].photo)
-  							break;
 
 
 
-  							default:
-  							console.log("sorry you have no friends")
-  							postImage("https://i.ytimg.com/vi/qG717LVerPk/maxresdefault.jpg");
+	  	function switchSt (){
+	  		switch (difference) {
+	  			case 0:
+	  				match = name;
+	  				console.log(match)
+	  				postImage(friendsArray[i].photo)
+	  				break;
+	  						
+	  			case 1:
+	  				match = name;
+	  				console.log(match)
+	  				postImage(friendsArray[i].photo)
+	  				break;
 
-					}
-				}
-  		
-  				
-    
+	  			case 2:
+	  				match = name;
+	  				console.log(match)
+	  				postImage(friendsArray[i].photo)
+	  				break;
 
-});
+	  			case 3:
+	  				match = name;
+	  				console.log(match)
+	  				postImage(friendsArray[i].photo)
+	  				break;
 
-  };
+	  			case 4:
+	  				match = name;
+	  				console.log(match)
+	  				postImage(friendsArray[i].photo)
+	  				break;
+
+	  			default:
+	  				console.log("Sorry you have no friends")
+	  				postImage("https://i.ytimg.com/vi/qG717LVerPk/maxresdefault.jpg");
+
+			}	
+	// ends switch		
+		}
+	  		
+	// ends ajax	
+  		});
+
+// ends runCelebrityMatch
+  	};
+
+
+	submit();
+
+	function submit(){
 
 		$("#submitBTN").on("click", function(){
-			obtainValue();
-			console.log(userInput);
 
-			currentURL = window.location.origin;
-			console.log(currentURL)
+			onSubmit();
 
-			$.post(currentURL + '/api/friends', userInput, 
-				function(data) {
-
-				 //    $("#name").val("");
-					// $("#photoID").val("");
-					// $("#Q1").val(""); 
-					// $("#Q2").val("");
-					// $("#Q3").val("");
-					// $("#Q4").val("");
-					// $("#Q5").val("");
-					// $("#Q6").val("");
-					// $("#Q7").val("");
-					// $("#Q8").val("");
-					// $("#Q9").val("");
-					// $("#Q10").val("");
-
-				
-			});
-
-      		 runCelebrityMatch();
 		});
+	}
 
+	function onSubmit(){
+
+		var empty = true;
+
+			if($("#name").val() === "" || $("#photoID").val() === "") {
+				empty = false;
+				$("#error").html("<br><br><h5> <span class ='red'> Please fill out required form</span></h5>")
+
+			}	else {
+
+				$("#error").hide();
+
+				obtainValue();
+
+				currentURL = window.location.origin;
+
+					$.post(currentURL + '/api/friends', userInput, 
+						function(data) {
+
+						    $("#name").val("");
+							$("#photoID").val("");
+							$("#Q1").val(""); 
+							$("#Q2").val("");
+							$("#Q3").val("");
+							$("#Q4").val("");
+							$("#Q5").val("");
+							$("#Q6").val("");
+							$("#Q7").val("");
+							$("#Q8").val("");
+							$("#Q9").val("");
+							$("#Q10").val("");
+						
+					});
+
+		      	runCelebrityMatch();
+		        $("#myModal").modal("toggle")
+
+
+			}
+
+
+	}
 
 
 	</script>
