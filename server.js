@@ -5,7 +5,7 @@
 
 
 
-	var PORT = 7000;
+	var PORT = process.env.PORT || 7000;
 
 	var app = express();
 
@@ -16,7 +16,7 @@
 	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 
-// 
+
 	HtmlRoutes(app);
 	ApiRoutes(app);
 
