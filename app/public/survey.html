@@ -303,7 +303,7 @@
 		
 	};
 	
-	function postImage(photo){
+	function postImage(name,photo){
 
 		var image = $("<img>");
 
@@ -322,19 +322,42 @@
 			.done(function(friendsArray) {
 
 				var sumOfUser = answersArray.reduce(add, 0);
-  						function add(a,b) {
-  							return a+b;
-  						}
 
-  						console.log(sumOfUser)
+				function add (a,b) {
+					return a + b;
+				}
 
+				function findDiff(a, b) { 
+					return Math.abs(a - b) 
+				} 
+
+  				var newFriendsArray = friendsArray.map(function(friend){
+  					var sum = friend.scores.reduce(add, 0);
+  					friend.diffScore = findDiff(sum, sumOfUser);
+  					return friend;
+  				});
+
+  				function compare(a,b) {
+				  if (a.diffScore < b.diffScore)
+				    return -1;
+				  if (a.diffScore > b.diffScore)
+				    return 1;
+				  return 0;
+				}
+
+				newFriendsArray.sort(compare);
+
+ 				
+ 				postImage(newFriendsArray[0].name,newFriendsArray[0].photo);
+
+ 		
 
 				for (var i=0; i<friendsArray.length; i++){
 
 					console.log("------------------------------------")
 					scores = friendsArray[i].scores;
 					name = friendsArray[i].name;
-					
+					}
 					sum = scores.reduce(add, 0);
   						function add (a,b) {
   							return a + b;
@@ -347,55 +370,6 @@
 
   					findDiff(sum, sumOfUser); 
 					console.log("the difference between " + name + "'s score and your score is " + difference);
-		
-
-					if (difference <= 5) {
-						switchSt();
-						console.log(name)
-			  		}
-  				}
-
-
-
-	  	function switchSt (){
-	  		switch (difference) {
-	  			case 0:
-	  				match = name;
-	  				console.log(match)
-	  				postImage(friendsArray[i].photo)
-	  				break;
-	  						
-	  			case 1:
-	  				match = name;
-	  				console.log(match)
-	  				postImage(friendsArray[i].photo)
-	  				break;
-
-	  			case 2:
-	  				match = name;
-	  				console.log(match)
-	  				postImage(friendsArray[i].photo)
-	  				break;
-
-	  			case 3:
-	  				match = name;
-	  				console.log(match)
-	  				postImage(friendsArray[i].photo)
-	  				break;
-
-	  			case 4:
-	  				match = name;
-	  				console.log(match)
-	  				postImage(friendsArray[i].photo)
-	  				break;
-
-	  			default:
-	  				console.log("Sorry you have no friends")
-	  				postImage("https://i.ytimg.com/vi/qG717LVerPk/maxresdefault.jpg");
-
-			}	
-	// ends switch		
-		}
 	  		
 	// ends ajax	
   		});
@@ -454,7 +428,6 @@
 
 
 			}
-
 
 	}
 

@@ -1,8 +1,8 @@
 
 
 	var path = require("path");
-//setting up routes for HTML
 
+//setting up routes for HTML
 	var HtmlRoutes = function(app){
 		
 		app.get('/', function (req, res) {
@@ -17,5 +17,5 @@
 
 	};
 
-
+//shipping out to server.js
 	module.exports = HtmlRoutes;

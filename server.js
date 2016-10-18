@@ -3,8 +3,6 @@
 	var ApiRoutes = require("./app/routing/api-routes.js")
 	var HtmlRoutes = require("./app/routing/html-routes.js");
 
-
-
 	var PORT = process.env.PORT || 7000;
 
 	var app = express();
