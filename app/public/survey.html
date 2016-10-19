@@ -19,23 +19,27 @@
 			background-image: url("http://media.gettyimages.com/videos/spotlights-on-sky-background-loop-yellow-video-id472537819?s=640x640");
 			background-attachment: fixed;
 			background-size: cover;
+
 		}
 
 		img {
-			width: 400px;
-			height: 400px;
+			width: 380px;
+			height: 450px;
+
 		}
 
 		#postAjax {
 			text-align: center;
 			font-size: 25px;
 			font-weight: bold;
+
 		}
 
 		.well {
 			background: rgba(10,10,10, 0.6);
 			border: white; 
 			color: white;
+
 		}
 
 		.jumbotron {
@@ -43,22 +47,25 @@
 			margin-top: 20px;
 			text-align: left;
 			color: white;
+
 		}
 
 		a {
 			color: #FFFACD;
+
 		}
 
 		a:hover {
 			color: #00EEEE;
 			text-decoration: none;
+
 		}
 
 		.red {
 			color: #DC143C;
+			
 		}
 	
-
 	</style>
 
 	<body>
@@ -260,13 +267,17 @@
 	var currentURL = "";
 	var answersArray = [];
 
-	var scores = [];
-	var name = [];
 	var difference = 0;
-	var match = [];
+
 
 //functions
 	var obtainValue = function () {
+
+
+		difference = 0;
+		userInput= [];
+		answersArray = [];
+
 
 		var name = $("#name").val();
 		var photoID = $("#photoID").val();
@@ -346,7 +357,6 @@
 				}
 
 				newFriendsArray.sort(compare);
-				console.log(newFriendsArray);
  				postImage(newFriendsArray[0].name,newFriendsArray[0].photo);
  		 		
 	// ends ajax	
@@ -404,11 +414,9 @@
 		      	runCelebrityMatch();
 		        $("#myModal").modal("toggle")
 
-
 			}
 
 	}
-
 
 	</script>
 

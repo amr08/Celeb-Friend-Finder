@@ -9,7 +9,7 @@ exports.friends = [{
 	{
     name: "Leonardo",
   	photo: "http://screencrush.com/442/files/2012/12/the_great_gatsby_trailer.jpg",
-    scores: [1,2,3,4,5,4,3,2,1,2]
+    scores: [1,2,3,4,5,1,1,1,1,2]
 	},
 
 	{
@@ -21,7 +21,7 @@ exports.friends = [{
 	{
     name: "Jack",
     photo: "http://hdpics.co/wp-content/uploads/2016/06/Jack-black-2.jpg",
-    scores: [1,3,3,4,5,4,3,2,1,2]
+    scores: [4,4,4,4,5,4,3,4,1,2]
   	}
   	
 ];
