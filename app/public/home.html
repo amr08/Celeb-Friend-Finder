@@ -2,99 +2,87 @@
 
 <html>
 
-	<title> Friend Finder Home </title>
+    <title> Friend Finder Home </title>
 
-	<head>
+    <head>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-	</head>
+    </head>
 
-	<style>
+    <style>
 
-		body {
-			background-image: url("http://nerdreactor.com/wp-content/uploads/2016/06/hollywood-walkoffame.jpg");
-			background-attachment: fixed;
-			background-size: cover;
+        body {
+            background-image: url("http://nerdreactor.com/wp-content/uploads/2016/06/hollywood-walkoffame.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-		}
+        img {
+            width: 300px;
+            height: 300px;
+        }
 
-		img {
-			width: 300px;
-			height: 300px;
+        #postAjax {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
 
-		}
+        .well {
+            background: rgba(255,250,205, 0.8);
+            border: white; 
+        }
 
-		#postAjax {
-			text-align: center;
-			font-size: 25px;
-			font-weight: bold;
+        .jumbotron {
+            background: rgba(10,10,10, 0.8);
+            margin-top: 20px;
+            text-align: left;
+            color: white;
+        }
 
-		}
+        a {
+            color: white;
+        }
 
-		.well {
-			background: rgba(255,250,205, 0.8);
-			border: white; 
+        a:hover {
+            color: #00EEEE;
+            text-decoration: none;
+        }
 
-		}
+        .color {
+            color: #DC143C;
+        }
 
-		.jumbotron {
-			background: rgba(10,10,10, 0.8);
-			margin-top: 20px;
-			text-align: left;
-			color: white;
+        .colorBlue {
+            color: #104E8B
+        }
 
-		}
+    </style>
 
-		a {
-			color: white;
+    <body>
 
-		}
+        <div class = "container">
+            <div class = "jumbotron">
 
-		a:hover {
-			color: #00EEEE;
-			text-decoration: none;
+                <h1> Celebrity Friend Finder</h1>
+                    <h2> <span class="color">Tired </span> of awkward small talk with celebs?</h2>
+                    <h2> Let <span class="colorBlue">us </span> do the hard work for you!</h2> 
 
-		}
+                <div class="btn-group">
+                    <a href="/survey"> <button id="surveyBTN" type="button" class="btn btn-info dropdown-toggle">Compatability Survey</button></a>
+                </div>
+            </div>
+        </div>
 
-		.color {
-			color: #DC143C;
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/Celeb-Friend-Finder">GitHub Repo</a></p>
+            </div>
+        </footer>
 
-		}
-
-		.colorBlue {
-			color: #104E8B
-
-		}
-
-	</style>
-
-	<body>
-
-		<div class = "container">
-
-			<div class = "jumbotron">
-
-				<h1> Celebrity Friend Finder</h1>
-					<h2> <span class="color">Tired </span> of awkward small talk with celebs?</h2>
-					<h2> Let <span class="colorBlue">us </span> do the hard work for you!</h2> 
-
-				<div class="btn-group">
-	  			<a href="/survey"> <button id="surveyBTN" type="button" class="btn btn-info dropdown-toggle">Compatability Survey</button></a>
-
- 				</div>
-
-			</div>
-		</div>
-
-		<footer class="footer">
-      		<div class="container">
-	        	<p><a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/Celeb-Friend-Finder">GitHub Repo</a></p>
-      		</div>
-    	</footer>
-
-	</body>
+    </body>
 
 </html>

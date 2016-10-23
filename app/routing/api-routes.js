@@ -1,10 +1,7 @@
 
 
   var friendsFile = require("../data/friends.js")
-
-
   var friendsArray = friendsFile.friends
-
 
   var ApiRoutes = function (app) {
 
@@ -13,11 +10,8 @@
     });
 
     app.post('/api/friends', function (req, res) {
-    
         friendsArray.push(req.body);
-
         res.json(true);
-  
     });
   };
 

@@ -2,424 +2,408 @@
 
 <html>
 
-	<title> Friend Finder Survey </title>
+    <title> Friend Finder Survey </title>
 
-	<head>
+    <head>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-	</head>
+    </head>
 
-	<style>
+    <style>
 
-		body {
-			background-image: url("http://media.gettyimages.com/videos/spotlights-on-sky-background-loop-yellow-video-id472537819?s=640x640");
-			background-attachment: fixed;
-			background-size: cover;
+        body {
+            background-image: url("http://media.gettyimages.com/videos/spotlights-on-sky-background-loop-yellow-video-id472537819?s=640x640");
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-		}
+        img {
+            width: 380px;
+            height: 450px;
+        }
 
-		img {
-			width: 380px;
-			height: 450px;
+        #postAjax {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
 
-		}
+        .well {
+            background: rgba(10,10,10, 0.6);
+            border: white; 
+            color: white;
+        }
 
-		#postAjax {
-			text-align: center;
-			font-size: 25px;
-			font-weight: bold;
+        .jumbotron {
+            background: rgba(10,10,10, 0.6);
+            margin-top: 20px;
+            text-align: left;
+            color: white;
+        }
 
-		}
+        a {
+            color: #FFFACD;
+        }
 
-		.well {
-			background: rgba(10,10,10, 0.6);
-			border: white; 
-			color: white;
+        a:hover {
+            color: #00EEEE;
+            text-decoration: none;
+        }
 
-		}
+        .red {
+            color: #DC143C;   
+        }
+    
+    </style>
 
-		.jumbotron {
-			background: rgba(10,10,10, 0.6);
-			margin-top: 20px;
-			text-align: left;
-			color: white;
+    <body>
 
-		}
+        <div class = "container">
+            <div class = "jumbotron">
+                <div class ="form-group">
 
-		a {
-			color: #FFFACD;
+                    <label for = "name">Name (Required): </label>
+                        <input class ="form-control" id = "name"></input>
 
-		}
+                    <label for = "photoID">Link to Photo Image (Required): </label>
+                        <input class ="form-control" id ="photoID"></input>
+                </div>              
+            </div>
 
-		a:hover {
-			color: #00EEEE;
-			text-decoration: none;
+            <div class="well">
+               <h3> Question 1 </h3>
+                <h5> You find yourself energized after being social </h5>
 
-		}
+                    <select class="form-control" id="Q1">
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>   
+                    </select>
+            </div>
 
-		.red {
-			color: #DC143C;
-			
-		}
-	
-	</style>
+            <div class="well">
+               <h3> Question 2 </h3>
+                <h5> You often find yourself uncomfortable in large crowds</h5>
 
-	<body>
+                    <select class="form-control" id=Q2>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>   
+                    </select>
+            </div>
 
-		<div class = "container">
+            <div class="well">
+               <h3> Question 3 </h3>
+                <h5> You once collected pogs </h5>
 
-			<div class = "jumbotron">
-	
-				<div class ="form-group">
-					<label for = "name">Name (Required): </label>
-						<input class ="form-control" id = "name"></input>
+                    <select class="form-control" id=Q3>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<label for = "photoID">Link to Photo Image (Required): </label>
-						<input class ="form-control" id ="photoID"></input>
-				</div>	
-						
-			</div>
+            <div class="well">
+               <h3> Question 4 </h3>
+                <h5> You would describe yourself as a flexible person </h5>
 
-			<div class="well">
-			   <h3> Question 1 </h3>
-				<h5> You find yourself energized after being social </h5>
+                    <select class="form-control" id=Q4>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+            
+                    </select>
+            </div>
 
-					<select class="form-control" id="Q1">
-					    <option id="placeholder" value="none">Select Rating </option>
-					    <option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>	
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 5 </h3>
+                <h5> You love animals </h5>
 
-			<div class="well">
-			   <h3> Question 2 </h3>
-				<h5> You often find yourself uncomfortable in large crowds</h5>
+                    <select class="form-control" id=Q5>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q2>
-					    <option id="placeholder" value="none">Select Rating </option>
-					    <option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>	
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 6 </h3>
+                <h5> You like sparking up conversation with random ass people </h5>
 
-			<div class="well">
-			   <h3> Question 3 </h3>
-				<h5> You once collected pogs </h5>
+                    <select class="form-control" id=Q6>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q3>
-					    <option id="placeholder" value="none">Select Rating </option>
-					   	<option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 7 </h3>
+                <h5> You are an adventurous person </h5>
 
-			<div class="well">
-			   <h3> Question 4 </h3>
-				<h5> You would describe yourself as a flexible person </h5>
+                    <select class="form-control" id=Q7>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q4>
-					    <option id="placeholder" value="none">Select Rating </option>
-					   	<option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-			
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 8 </h3>
+                <h5> You would describe yourself as open minded</h5>
 
-			<div class="well">
-			   <h3> Question 5 </h3>
-				<h5> You love animals </h5>
+                    <select class="form-control" id=Q8>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q5>
-					    <option id="placeholder" value="none">Select Rating </option>
-					    <option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 9 </h3>
+                <h5> People other than your mom would describe you as humorous </h5>
 
-			<div class="well">
-			   <h3> Question 6 </h3>
-				<h5> You like sparking up conversation with random ass people </h5>
+                    <select class="form-control" id=Q9>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q6>
-					    <option id="placeholder" value="none">Select Rating </option>
-						<option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
+            <div class="well">
+               <h3> Question 10 </h3>
+                <h5> You're a big spender</h5>
 
-			<div class="well">
-			   <h3> Question 7 </h3>
-				<h5> You are an adventurous person </h5>
+                    <select class="form-control" id=Q10>
+                        <option id="placeholder" value="none">Select Rating </option>
+                        <option value=1>1 Strongly Disagree</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 Strongly Agree</option>
+                    </select>
+            </div>
 
-					<select class="form-control" id=Q7>
-					    <option id="placeholder" value="none">Select Rating </option>
-					   	<option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
+                <div class="btn-group">
+                    <button id="submitBTN" type="button" class="btn btn-info">Submit</button> 
+                    <div class= "well-sm" id ="error"></div>
+                </div>
 
-			<div class="well">
-			   <h3> Question 8 </h3>
-				<h5> You would describe yourself as open minded</h5>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
 
-					<select class="form-control" id=Q8>
-					    <option id="placeholder" value="none">Select Rating </option>
-					    <option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
+                            </div>
+                                <div class="modal-body" id="postAjax">
+                                </div>
 
-			<div class="well">
-			   <h3> Question 9 </h3>
-				<h5> People other than your mom would describe you as humorous </h5>
-
-					<select class="form-control" id=Q9>
-					    <option id="placeholder" value="none">Select Rating </option>
-					    <option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
-
-			<div class="well">
-			   <h3> Question 10 </h3>
-				<h5> You're a big spender</h5>
-
-					<select class="form-control" id=Q10>
-					    <option id="placeholder" value="none">Select Rating </option>
-					  	<option value=1>1 Strongly Disagree</option>
-					    <option value=2>2</option>
-					    <option value=3>3</option>
-					    <option value=4>4</option>
-					    <option value=5>5 Strongly Agree</option>
-					</select>
-			</div>
-
-				<div class="btn-group">
-					<button id="submitBTN" type="button" class="btn btn-info">Submit</button> 
-					<div class= "well-sm" id ="error"></div>
-				</div>
-
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-				    	<div class="modal-content">
-				      		<div class="modal-header">
-
-				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        		<h4 class="modal-title" id="myModalLabel">Your Celebrity Match!</h4>
-				      		</div>
-						      	<div class="modal-body" id="postAjax">
-						      	</div>
-
-					    	<div class="modal-footer">
-					        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					    	</div>
-						</div>
-	  				</div>
-				</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 <!-- closes jumbotron -->
-			</div>
+            </div>
 <!-- closes container -->
-		</div>
-		<br>
+        </div>
+        <br>
 
-		<footer class="footer">
-      		<div class="container">
-	        	<p><a href="/">Home</a> | <a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/Celeb-Friend-Finder">GitHub Repo</a></p>
-      		</div>
-    	</footer>
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/">Home</a> | <a href="/api/friends">API friends Link</a> | <a href="https://github.com/amr08/Celeb-Friend-Finder">GitHub Repo</a></p>
+            </div>
+        </footer>
 
-	<script> 
+    <script> 
 
 //globals
-	var userInput = [];
-	var currentURL = "";
-	var answersArray = [];
+    var userInput = [];
+    var currentURL = "";
+    var answersArray = [];
 
-	var difference = 0;
-
+    var difference = 0;
 
 //functions
-	var obtainValue = function () {
+    var obtainValue = function () {
 
 
-		difference = 0;
-		userInput= [];
-		answersArray = [];
+        difference = 0;
+        userInput= [];
+        answersArray = [];
+
+        var name = $("#name").val();
+        var photoID = $("#photoID").val();
+        var Q1 = $("#Q1").val(); 
+        var Q2 = $("#Q2").val();
+        var Q3 = $("#Q3").val();
+        var Q4 = $("#Q4").val();
+        var Q5 = $("#Q5").val();
+        var Q6 = $("#Q6").val();
+        var Q7 = $("#Q7").val();
+        var Q8 = $("#Q8").val();
+        var Q9 = $("#Q9").val();
+        var Q10 = $("#Q10").val();
+
+        answersArray.push(parseInt(Q1))
+        answersArray.push(parseInt(Q2))
+        answersArray.push(parseInt(Q3))
+        answersArray.push(parseInt(Q4))
+        answersArray.push(parseInt(Q5))
+        answersArray.push(parseInt(Q6))
+        answersArray.push(parseInt(Q7)) 
+        answersArray.push(parseInt(Q8))
+        answersArray.push(parseInt(Q9))
+        answersArray.push(parseInt(Q10))
 
 
-		var name = $("#name").val();
-		var photoID = $("#photoID").val();
-		var Q1 = $("#Q1").val(); 
-		var Q2 = $("#Q2").val();
-		var Q3 = $("#Q3").val();
-		var Q4 = $("#Q4").val();
-		var Q5 = $("#Q5").val();
-		var Q6 = $("#Q6").val();
-		var Q7 = $("#Q7").val();
-		var Q8 = $("#Q8").val();
-		var Q9 = $("#Q9").val();
-		var Q10 = $("#Q10").val();
+        userInput = {
 
-		answersArray.push(parseInt(Q1))
- 		answersArray.push(parseInt(Q2))
- 		answersArray.push(parseInt(Q3))
- 		answersArray.push(parseInt(Q4))
- 		answersArray.push(parseInt(Q5))
- 		answersArray.push(parseInt(Q6))
- 		answersArray.push(parseInt(Q7))	
- 		answersArray.push(parseInt(Q8))
- 		answersArray.push(parseInt(Q9))
- 		answersArray.push(parseInt(Q10))
+            name: name,
+            photo: photoID,
+            scores: answersArray
+    
+        }
+        
+    };
+    
+    function postImage(name,photo){
 
+        var image = $("<img>");
+        image.attr("src", photo);
+        $("#postAjax").append(name + "<br>")
+            .append(image[0]);
 
-		userInput = {
+    }
 
-			name: name,
-			photo: photoID,
-			scores: answersArray
-	
-		}
-		
-	};
-	
-	function postImage(name,photo){
+    var runCelebrityMatch = function (){
+        $("#postAjax").empty();
+    
+        $.ajax({url: currentURL + "/api/friends", method: "GET"}) 
 
-		var image = $("<img>");
+            .done(function(friendsArray) {
 
-		image.attr("src", photo);
+                var sumOfUser = answersArray.reduce(add, 0);
 
-		$("#postAjax").append(name + "<br>")
-			.append(image[0]);
+                function add (a,b) {
+                    return a + b;
+                }
 
-	}
+                function findDiff(a, b) { 
+                    return Math.abs(a - b) 
+                } 
 
-	var runCelebrityMatch = function (){
-		$("#postAjax").empty();
-	
-		$.ajax({url: currentURL + "/api/friends", method: "GET"}) 
+                var newFriendsArray = friendsArray.map(function(friend){
+                    var sum = friend.scores.reduce(add, 0);
+                    friend.diffScore = findDiff(sum, sumOfUser);
+                    return friend;
+                });
 
-			.done(function(friendsArray) {
+                function compare(a,b) {
+                  if (a.diffScore < b.diffScore)
+                    return -1;
+                  if (a.diffScore > b.diffScore)
+                    return 1;
+                  return 0;
+                }
 
-				var sumOfUser = answersArray.reduce(add, 0);
-
-				function add (a,b) {
-					return a + b;
-				}
-
-				function findDiff(a, b) { 
-					return Math.abs(a - b) 
-				} 
-
-  				var newFriendsArray = friendsArray.map(function(friend){
-  					var sum = friend.scores.reduce(add, 0);
-  					friend.diffScore = findDiff(sum, sumOfUser);
-  					return friend;
-  				});
-
-  				function compare(a,b) {
-				  if (a.diffScore < b.diffScore)
-				    return -1;
-				  if (a.diffScore > b.diffScore)
-				    return 1;
-				  return 0;
-				}
-
-				newFriendsArray.sort(compare);
- 				postImage(newFriendsArray[0].name,newFriendsArray[0].photo);
- 		 		
-	// ends ajax	
-  		});
+                newFriendsArray.sort(compare);
+                postImage(newFriendsArray[0].name,newFriendsArray[0].photo);
+                
+    // ends ajax    
+        });
 
 // ends runCelebrityMatch
-  	};
+    };
 
 
-	submit();
+    submit();
 
-	function submit(){
+    function submit(){
 
-		$("#submitBTN").on("click", function(){
+        $("#submitBTN").on("click", function(){
+            onSubmit();
+        });
+    }
 
-			onSubmit();
+    function onSubmit(){
 
-		});
-	}
+        var empty = true;
 
-	function onSubmit(){
+            if ($("#name").val() === "" || $("#photoID").val() === "") {
+                empty = false;
+                $("#error").html("<br><br><h5> <span class ='red'> Please fill out required form</span></h5>")
 
-		var empty = true;
+            }   else {
 
-			if($("#name").val() === "" || $("#photoID").val() === "") {
-				empty = false;
-				$("#error").html("<br><br><h5> <span class ='red'> Please fill out required form</span></h5>")
+                $("#error").hide();
 
-			}	else {
+                obtainValue();
 
-				$("#error").hide();
+                currentURL = window.location.origin;
 
-				obtainValue();
+                    $.post(currentURL + '/api/friends', userInput, 
+                        function(data) {
 
-				currentURL = window.location.origin;
+                            $("#name").val("");
+                            $("#photoID").val("");
+                            $("#Q1").val(""); 
+                            $("#Q2").val("");
+                            $("#Q3").val("");
+                            $("#Q4").val("");
+                            $("#Q5").val("");
+                            $("#Q6").val("");
+                            $("#Q7").val("");
+                            $("#Q8").val("");
+                            $("#Q9").val("");
+                            $("#Q10").val("");
+                        
+                    });
 
-					$.post(currentURL + '/api/friends', userInput, 
-						function(data) {
+                runCelebrityMatch();
+                $("#myModal").modal("toggle")
 
-						    $("#name").val("");
-							$("#photoID").val("");
-							$("#Q1").val(""); 
-							$("#Q2").val("");
-							$("#Q3").val("");
-							$("#Q4").val("");
-							$("#Q5").val("");
-							$("#Q6").val("");
-							$("#Q7").val("");
-							$("#Q8").val("");
-							$("#Q9").val("");
-							$("#Q10").val("");
-						
-					});
+            }
+            
+    }
 
-		      	runCelebrityMatch();
-		        $("#myModal").modal("toggle")
+    </script>
 
-			}
-
-	}
-
-	</script>
-
-	</body>
+    </body>
 
 </html>
